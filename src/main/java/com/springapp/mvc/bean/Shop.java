@@ -1,6 +1,7 @@
 package com.springapp.mvc.bean;
 
 import javax.persistence.*;
+import java.util.List;
 
 
 @Entity
@@ -12,24 +13,25 @@ public class Shop {
     @GeneratedValue
     private Integer id;
 
-    @Column
+    @Column(name ="price" )
     private Double price;
 
+    @Column(name = "stock")
     @Enumerated(EnumType.ORDINAL)
-    private Stock stock;
+    private StockStatus stockStatus;
 
-   /* @ManyToOne
-    @JoinColumn(name="product_id")
-    Product product;*/
-
-
-    public enum Stock {
+    public enum StockStatus {
         NO,LACK,ENOUGH
     }
+
+    @ManyToOne()
+    private Product product;
+
 
 
     public Shop() {
     }
+
 
     public Integer getId() {
         return id;
@@ -44,11 +46,11 @@ public class Shop {
         this.price = price;
     }
 
-    public Stock getStock() {
-        return stock;
+    public StockStatus getStockStatus() {
+        return stockStatus;
     }
 
-    public void setStock(Stock stock) {
-        this.stock = stock;
+    public void setStockStatus(StockStatus stockStatus) {
+        this.stockStatus = stockStatus;
     }
 }

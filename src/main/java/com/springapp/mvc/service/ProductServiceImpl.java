@@ -1,7 +1,6 @@
 package com.springapp.mvc.service;
 
 import com.springapp.mvc.bean.Product;
-import com.springapp.mvc.bean.Shop;
 import com.springapp.mvc.dao.ProductDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

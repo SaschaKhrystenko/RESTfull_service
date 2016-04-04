@@ -1,5 +1,6 @@
 package com.springapp.mvc.bean;
 
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -15,9 +16,12 @@ public class Product {
     @Column(unique = true)
     private String mpn;
 
-    @OneToMany(fetch = FetchType.LAZY)
+
+    @OneToMany()
     @JoinColumn(name = "product_id")
-    private List<Shop> array;
+
+
+    private List<Shop> shopList;
 
     public Product() {
     }
@@ -35,11 +39,14 @@ public class Product {
         this.mpn = mpn;
     }
 
-    public List<Shop> getArray() {
-        return array;
+    public List<Shop> getShopkList() {
+        return shopList;
     }
 
-    public void setArray(List<Shop> shopList) {
-        this.array = shopList;
+    public void setShopkList(List<Shop> shopkList) {
+        this.shopList = shopkList;
     }
+
+
+
 }
